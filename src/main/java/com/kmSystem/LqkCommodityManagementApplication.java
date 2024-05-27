@@ -1,4 +1,4 @@
-package com.cm.lqkCM;
+package com.kmSystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

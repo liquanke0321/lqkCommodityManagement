@@ -1,4 +1,4 @@
-package com.cm.lqkCM.entity;
+package com.kmSystem.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,5 +11,6 @@ public class NotificationVo {
     private String reslutType;
     private String reslutTitle;
     private String reslutMsg;
+    private UserContentVo userContentVo = new UserContentVo();
 
 }

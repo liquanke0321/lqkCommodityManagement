@@ -1,2 +1,0 @@
-# lqkCommodityManagement
-lqkCommodityManagement
