@@ -24,7 +24,7 @@ public class UserController {
             user.setMail(userContentVoList.get(0).getMail());
             user.setAge(userContentVoList.get(0).getAge());
             user.setAddress(userContentVoList.get(0).getAddress());
-            user.setPhonenumber(userContentVoList.get(0).getPhonenumber());
+            user.setPhoneNumber(userContentVoList.get(0).getPhoneNumber());
             user.setUserid(userContentVoList.get(0).getUserid());
 
             notificationVo.setReslutStatus("OK");

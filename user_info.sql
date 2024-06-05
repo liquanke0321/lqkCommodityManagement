@@ -28,7 +28,7 @@ CREATE TABLE `user_info`  (
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '登录用的密码',
   `age` double NULL DEFAULT 1 COMMENT '用户年龄',
   `mail` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '用户关联邮箱',
-  `phonenumber` double NULL DEFAULT NULL COMMENT '用户电话号码',
+  `phonenumber` varchar(20) NULL DEFAULT NULL COMMENT '用户电话号码',
   `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '用户住址',
   `created_date` datetime NOT NULL,
   `updated_date` datetime NOT NULL,
