@@ -1,13 +1,12 @@
 package com.kmSystem.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * PRODUCT_INFO
  */
-@Getter
-@Setter
+@Data
+
 public class ProductInfoVo {
     /**
      * 入库单号，入库单号

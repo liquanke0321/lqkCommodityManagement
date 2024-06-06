@@ -2,8 +2,8 @@ package com.kmSystem.controller;
 
 import com.kmSystem.entity.NotificationVo;
 import com.kmSystem.entity.UserContentVo;
-import com.kmSystem.service.SelectUserService;
-import com.kmSystem.service.SelectUserServiceImpl;
+import com.kmSystem.service.UserService;
+import com.kmSystem.service.UserServiceImpl;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,7 +46,7 @@ public class UserController {
 
 
     @Resource
-    private SelectUserService userService = new SelectUserServiceImpl();
+    private UserService userService = new UserServiceImpl();
 
     @RequestMapping(value = "/selectAll", method = RequestMethod.GET)
     public List<UserContentVo> selectAll(String username, String password) {
