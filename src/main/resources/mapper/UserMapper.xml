@@ -1,0 +1,8 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kmSystem.mapper.UserMapper">
+    <select id="selectUser" parameterType="String" resultType="com.kmSystem.entity.UserContentVo" >
+        select * from user_info where username = #{user.username} and password = #{user.password}
+    </select>
+</mapper>

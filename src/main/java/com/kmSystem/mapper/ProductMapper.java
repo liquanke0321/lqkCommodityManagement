@@ -1,18 +1,18 @@
 package com.kmSystem.mapper;
 
 import com.kmSystem.entity.ProductInfoVo;
+import com.kmSystem.entity.ProductTypeContentVo;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface ProductMapper {
-    @Select({
-            "select","*",
-            "from product_info","where","product_id"//#{productId} and password = #{password}
-    })
-    List<ProductInfoVo> selectProduct(@Param("productId") StringBuffer productId);//, @Param("password") String password
+    //不用@Param传值的，在xml中直接写对象中的属性就可以
+    List<ProductInfoVo> selectProduct(ProductInfoVo productInfoVoCtrl);
+    Integer deleteProduct(ProductInfoVo productInfoVoCtrl);
+    Integer updateProduct(ProductInfoVo productInfoVoCtrl);
+    List<ProductTypeContentVo> selectType();
 
 }

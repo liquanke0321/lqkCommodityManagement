@@ -1,0 +1,75 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace属性：用于指定当前的映射文件和哪个接口文件映射，需要标注包的完整路径-->
+<mapper namespace="com.kmSystem.mapper.ProductMapper">
+    <!--id属性是给映射分配一个唯一的ID值，对应的就是resultMap="id值的取值"-->
+    <resultMap id="ProductInfoVoMapper" type="com.kmSystem.entity.ProductInfoVo">
+        <!--    type属性就是指定数据库返回结果 跟哪一个实体类相匹配
+                 column是表中字段名 property是实体类中字段名
+                 只写名字不一致的就可以，一致的让他默认匹配就行
+                 或者可以配置文件中直接配置驼峰自动转换
+        -->
+        <id column="product_id" property="productId"></id><!--在定义映射规则时，主键是不能省略的-->
+        <result column="product_name" property="productName"></result>
+        <result column="product_number" property="productNumber"></result>
+        <result column="product_price" property="productPrice"></result>
+        <result column="product_version" property="productVersion"></result>
+        <result column="type_name" property="productType"></result>
+
+    </resultMap>
+    <resultMap id="typeMapper" type="com.kmSystem.entity.ProductTypeContentVo">
+        <id column="type_id" property="typeId"></id>
+        <result column="type_name" property="typeName"></result>
+
+    </resultMap>
+    <!--id属性用来映射接口中方法的名称，标签内部直接写sql语句
+        resultType是指定返回类型  resultType="com.kmSystem.entity.UserContentVo"
+        resultMap是当返回对象的字段名跟结果集的字段名不一致时，指定映射对象
+        resultMap="UserContentVoMapper"
+    -->
+    <select id="selectProduct" resultType="com.kmSystem.entity.ProductInfoVo" resultMap="ProductInfoVoMapper">
+        SELECT
+            product_id,
+            product_name,
+            product_number,
+            product_version,
+            product_price,
+            type_name
+        FROM
+            product_info P1
+                LEFT JOIN product_type_info P2 ON P1.product_type = P2.type_id
+        WHERE
+            product_type LIKE #{productType}
+          AND product_id LIKE #{productId}
+          AND product_name LIKE #{productName}
+    </select>
+
+    <select id="selectType" resultType="com.kmSystem.entity.ProductTypeContentVo" resultMap="typeMapper">
+        SELECT
+            *
+        FROM
+            product_type_info
+    </select>
+
+    <delete id="deleteProduct" >
+        DELETE
+        FROM
+            product_info
+        WHERE
+            product_id = #{productId}
+    </delete>
+
+    <update id="updateProduct" >
+        UPDATE product_info
+        SET product_id      = #{productId},
+            product_name    = #{productName},
+            product_number  = #{productNumber},
+            product_type    = #{productType},
+            product_version = #{productType},
+            product_price   = #{productPrice},
+            updated_date    = #{updatedDate}
+        WHERE product_id = '100004'
+
+    </update>
+</mapper>

@@ -39,4 +39,17 @@ public class UserContentVo {
      */
     private String username;
 
+    @Override
+    public String toString() {
+        return "UserContentVo{" +
+                "address='" + address + '\'' +
+                ", age=" + age +
+                ", aliasname='" + aliasname + '\'' +
+                ", mail='" + mail + '\'' +
+                ", password='" + password + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", userid=" + userid +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }

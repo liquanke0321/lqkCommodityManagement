@@ -13,4 +13,10 @@ public class NotificationVo {
     private String reslutMsg;
     private UserContentVo userContentVo = new UserContentVo();
 
+    public void setReslutMsg(String reslutStatus,String reslutType,String reslutTitle,String reslutMsg) {
+        this.reslutStatus = reslutStatus;
+        this.reslutType = reslutType;
+        this.reslutTitle = reslutTitle;
+        this.reslutMsg = reslutMsg;
+    }
 }

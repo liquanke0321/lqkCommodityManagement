@@ -7,10 +7,6 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-    @Select({
-            "select","*",
-            "from user_info","where","username = #{username} and password = #{password}"
-    })
-    List<UserContentVo> selectAll(@Param("username") String username, @Param("password") String password);
-
+    //这种是使用@Param传值的,在xml中取值要用 对象.属性 的方式去出字段值
+    List<UserContentVo> selectUser( @Param("user")UserContentVo user);
 }
