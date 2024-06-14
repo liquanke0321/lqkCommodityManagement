@@ -61,15 +61,13 @@
     </delete>
 
     <update id="updateProduct" >
-        UPDATE product_info
-        SET product_id      = #{productId},
-            product_name    = #{productName},
+        UPDATE product_info P1
+        SET product_name    = #{productName},
             product_number  = #{productNumber},
             product_type    = #{productType},
-            product_version = #{productType},
-            product_price   = #{productPrice},
-            updated_date    = #{updatedDate}
-        WHERE product_id = '100004'
+            product_version = #{productVersion},
+            product_price   = #{productPrice}
+        WHERE product_id = #{productId}
 
     </update>
 </mapper>

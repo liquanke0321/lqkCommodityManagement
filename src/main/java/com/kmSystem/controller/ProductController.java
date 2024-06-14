@@ -79,21 +79,15 @@ public class ProductController {
     public NotificationVo updateProduct(@RequestBody ProductInfoVo productInfo) {
 
         NotificationVo notificationVo = new NotificationVo();
-
         //检索数据是否存在
         ProductInfoVo productInfoVoCtrl = new ProductInfoVo();
         productInfoVoCtrl.setProductName("%%");
         productInfoVoCtrl.setProductType("%%");
         productInfoVoCtrl.setProductId(productInfo.getProductId());
         List<ProductInfoVo> productInfoVoResultList = productMapper.selectProduct(productInfoVoCtrl);
-
         if (!argCommon.NULL.equals(productInfoVoResultList.get(0).getProductName())) {
-            Date date = new Date();
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss");
-            productInfo.setUpdatedDate(formatter.format(date));
-            System.out.println(formatter.format(date));
+            System.out.println("1111111111111111111111111111111111111111111111111111111111111111111:::::"+productInfo.getProductType());
             Integer resultNum = productMapper.updateProduct(productInfo);
-            System.out.println(formatter.format(resultNum));
             if (resultNum != 0) {
                 //弹窗信息设定
                 notificationVo.setReslutMsg("OK", "success", "更新成功", productInfoVoResultList.get(0).getProductName() + "更新完成");
